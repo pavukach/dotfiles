@@ -1,14 +1,15 @@
 { lib, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    marksman
+    clang-tools
+
     flutter
     nodejs
     deno
     python315
     dotnet-sdk_10
     dotnet-sdk
-    clang-tools
-    clang
     gcc
     dart
     supabase-cli

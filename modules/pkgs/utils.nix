@@ -6,12 +6,12 @@
     wlr-randr
     trash-cli
     dragon-drop
-    icu
-    slurp
-    grim
+    wayfreeze
 
-    hyphen
-    hyphenDicts.en-us
+    luarocks
+
+    # hyphen
+    # hyphenDicts.en-us
   ];
 
   fonts.packages = with pkgs; [

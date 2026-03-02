@@ -1,4 +1,3 @@
--- Disabled plugins
 return {
   {
     "akinsho/bufferline.nvim",
@@ -20,4 +19,8 @@ return {
     "folke/which-key.nvim",
     enabled = false,
   },
+  {
+    "stevearc/dressing.nvim",
+    enabled = false,
+  }
 }

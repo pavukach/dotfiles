@@ -19,6 +19,11 @@ vim.keymap.set("n", "<leader>,", function()
   })
 end, { desc = "Open buffers" })
 
+vim.keymap.set("n", "<leader>as", function()
+  vim.cmd("Neocodeium toggle")
+  vim.cmd("Sidekick nes toggle")
+end, { desc = "Toggle AI completion" })
+
 if vim.g.neovide then
   vim.keymap.set("v", "<sc-c>", '"+y', { desc = "Copy to system clipboard" })
   vim.keymap.set("n", "<sc-v>", 'l"+P', { desc = "Paste from system clipboard" })

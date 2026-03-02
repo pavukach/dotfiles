@@ -18,30 +18,24 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.api.nvim_create_autocmd(
-    { "BufEnter", "FocusGained", "InsertLeave", "WinEnter", "CmdlineLeave", "TermLeave" },
-    {
-        group = numbertoggle,
-        callback = function()
-            if vim.opt.number:get() and vim.api.nvim_get_mode() ~= "i" then
-                vim.opt.relativenumber = true
-            end
-        end,
-    }
-)
+vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter", "CmdlineLeave", "TermLeave" }, {
+  group = numbertoggle,
+  callback = function()
+    if vim.opt.number:get() and vim.api.nvim_get_mode() ~= "i" then
+      vim.opt.relativenumber = true
+    end
+  end,
+})
 
-vim.api.nvim_create_autocmd(
-    { "BufLeave", "FocusLost", "InsertEnter", "WinLeave", "CmdlineEnter" },
-    {
-        group = numbertoggle,
-        callback = function()
-            if vim.opt.number:get() then
-                vim.opt.relativenumber = false
-                vim.cmd("redraw")
-            end
-        end,
-    }
-)
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave", "CmdlineEnter" }, {
+  group = numbertoggle,
+  callback = function()
+    if vim.opt.number:get() then
+      vim.opt.relativenumber = false
+      vim.cmd("redraw")
+    end
+  end,
+})
 
 -- terminal setup
 vim.api.nvim_create_autocmd("TermOpen", {
@@ -52,4 +46,3 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.opt_local.syntax = "OFF" -- no syntax parsing
   end,
 })
-

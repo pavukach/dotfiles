@@ -36,7 +36,7 @@ in
     # hide cursor after 1 second of inactivity
     seat * hide_cursor 1000
 
-    exec "PATH=${runtimePath} ${../scripts/screen-toggle.fish} 2>> /tmp/sysc-greet.log"
+    exec "PATH=${runtimePath} ${../scripts/screen-toggle}"
 
     # Startup applications
     # Start gslapper with default wallpaper (forked to background with IPC socket)
@@ -55,7 +55,7 @@ in
     serviceConfig = {
       Type = "oneshot";
       Environment = "PATH=${runtimePath}";
-      ExecStart = "${nixDir}/scripts/screen-toggle.fish";
+      ExecStart = ../scripts/screen-toggle;
     };
     wantedBy = [ "graphical-session.target" ];
   };

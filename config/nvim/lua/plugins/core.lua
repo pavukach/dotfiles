@@ -58,4 +58,24 @@ return {
       vim.keymap.set("v", "d", "d<cmd>AutolistRecalculate<cr>")
     end,
   },
+  {
+    "saghen/blink.cmp",
+    opts = {
+      completion = {
+        menu = {
+          border = "rounded",
+        },
+        documentation = {
+          window = {
+            border = "rounded",
+          },
+        },
+      },
+      signature = {
+        window = {
+          border = "rounded",
+        },
+      },
+    },
+  },
 }

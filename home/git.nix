@@ -16,6 +16,8 @@
       ".geminiignore"
       "GEMINI.md"
       ".qwenignore"
+      "shell.nix"
+      ".envrc"
     ];
   };
 }

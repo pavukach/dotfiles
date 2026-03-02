@@ -61,4 +61,20 @@ return {
       ignored_filetypes = { "neo-tree", "fugitive", "TelescopePrompt", "mason", "lazy" },
     },
   },
+  {
+    "folke/noice.nvim",
+    opts = {
+      views = {
+        hover = {
+          border = { style = "rounded" },
+        },
+      },
+      lsp = {
+        documentation = {
+          view = "hover",
+        },
+        hover = { silent = true },
+      },
+    },
+  },
 }

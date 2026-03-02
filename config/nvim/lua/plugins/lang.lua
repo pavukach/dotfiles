@@ -4,7 +4,13 @@ return {
     opts = {
       servers = {
         clangd = {
-          cmd = { "clangd" },
+          cmd = {
+            "clangd",
+            -- "--query-driver=" .. gcc .. "," .. gpp,
+          },
+          mason = false,
+        },
+        marksman = {
           mason = false,
         },
         jdtls = {

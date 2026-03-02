@@ -1,0 +1,14 @@
+#!/usr/bin/env fish
+
+set dir ~/.config/copy-menu/$argv[1]
+echo $dir
+set choice (ls $dir | sed 's/\.[^./]\+$//' | vicinae dmenu)
+
+test -z "$choice"; and exit 0
+
+if test -f "$dir/$choice"
+    set file "$dir/$choice"
+else
+    set file (ls $dir/$choice.* | head -n1)
+end
+wl-copy < $file
