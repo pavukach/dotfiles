@@ -1,16 +1,16 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require "json"
+require 'json'
 
 clients = JSON.parse(`hyprctl clients -j`)
-exists = clients.any? { |c| c["class"] == "toggleterm" }
+exists = clients.any? { |c| c['class'] == 'toggleterm' }
 
-unless exists
-  system %q(
-    hyprctl dispatch exec "[workspace special:toggleterm; float; size 100% 40%; move 0% 0%] kitty --class toggleterm"
-  )
-  sleep 0.15
+if exists
+  system 'hyprctl dispatch togglespecialworkspace toggleterm'
+else
+  system '
+    hyprctl dispatch exec \
+    "[workspace special:toggleterm; float; size monitor_w*0.5 monitor_h*0.5] kitty --class toggleterm"
+  '
 end
-
-system "hyprctl dispatch togglespecialworkspace toggleterm"

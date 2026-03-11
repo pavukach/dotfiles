@@ -1,5 +1,5 @@
 {
-  "settingsVersion": 53,
+  "settingsVersion": 56,
   "bar": {
     "barType": "simple",
     "position": "top",
@@ -10,6 +10,7 @@
     "capsuleOpacity": 1,
     "capsuleColorKey": "none",
     "widgetSpacing": 6,
+    "contentPadding": 2,
     "fontScale": 1,
     "backgroundOpacity": 1,
     "useSeparateOpacity": false,
@@ -40,6 +41,7 @@
           "diskPath": "/",
           "iconColor": "none",
           "id": "SystemMonitor",
+          "showCpuCores": false,
           "showCpuFreq": false,
           "showCpuTemp": true,
           "showCpuUsage": true,
@@ -68,14 +70,11 @@
         },
         {
           "compactMode": false,
-          "compactShowAlbumArt": true,
-          "compactShowVisualizer": false,
           "hideMode": "hidden",
           "hideWhenIdle": false,
           "id": "MediaMini",
           "maxWidth": 145,
           "panelShowAlbumArt": true,
-          "panelShowVisualizer": true,
           "scrollingMode": "hover",
           "showAlbumArt": true,
           "showArtistFirst": true,
@@ -110,12 +109,20 @@
           "colorName": "primary",
           "hideWhenIdle": false,
           "id": "AudioVisualizer",
-          "width": 200
+          "width": 150
         },
         {
           "iconColor": "none",
           "id": "KeepAwake",
           "textColor": "none"
+        },
+        {
+          "defaultSettings": {
+            "enableCross": true,
+            "enableWindowsSelection": true,
+            "screenshotEditor": "swappy"
+          },
+          "id": "plugin:screen-shot-and-record"
         },
         {
           "defaultSettings": {
@@ -201,6 +208,15 @@
         }
       ]
     },
+    "mouseWheelAction": "none",
+    "reverseScroll": false,
+    "mouseWheelWrap": true,
+    "middleClickAction": "none",
+    "middleClickFollowMouse": false,
+    "middleClickCommand": "",
+    "rightClickAction": "controlCenter",
+    "rightClickFollowMouse": true,
+    "rightClickCommand": "",
     "screenOverrides": []
   },
   "general": {
@@ -220,6 +236,7 @@
     "lockOnSuspend": true,
     "showSessionButtonsOnLockScreen": true,
     "showHibernateOnLockScreen": false,
+    "enableLockScreenMediaControls": false,
     "enableShadows": true,
     "shadowDirection": "bottom_right",
     "shadowOffsetX": 2,
@@ -252,7 +269,8 @@
         "Right"
       ],
       "keyEnter": [
-        "Return"
+        "Return",
+        "Enter"
       ],
       "keyEscape": [
         "Esc"
@@ -269,14 +287,11 @@
     "fontDefaultScale": 1,
     "fontFixedScale": 1,
     "tooltipsEnabled": true,
+    "boxBorderEnabled": false,
     "panelBackgroundOpacity": 1,
     "panelsAttachedToBar": true,
     "settingsPanelMode": "attached",
-    "wifiDetailsViewMode": "grid",
-    "bluetoothDetailsViewMode": "grid",
-    "networkPanelView": "wifi",
-    "bluetoothHideUnnamedDevices": false,
-    "boxBorderEnabled": false
+    "settingsPanelSideBarCardStyle": false
   },
   "location": {
     "name": "Bucharest",
@@ -479,17 +494,22 @@
     "deadOpacity": 0.6,
     "animationSpeed": 1,
     "sitOnFrame": false,
-    "showFrameIndicator": true
+    "showDockIndicator": false,
+    "indicatorThickness": 3,
+    "indicatorColor": "primary",
+    "indicatorOpacity": 0.6
   },
   "network": {
     "wifiEnabled": true,
     "airplaneModeEnabled": false,
     "bluetoothRssiPollingEnabled": false,
     "bluetoothRssiPollIntervalMs": 10000,
+    "networkPanelView": "wifi",
     "wifiDetailsViewMode": "grid",
     "bluetoothDetailsViewMode": "grid",
     "bluetoothHideUnnamedDevices": false,
-    "disableDiscoverability": false
+    "disableDiscoverability": false,
+    "bluetoothAutoConnect": true
   },
   "sessionMenu": {
     "enableCountdown": true,
@@ -583,7 +603,8 @@
     "visualizerType": "linear",
     "mprisBlacklist": [],
     "preferredPlayer": "",
-    "volumeFeedback": false
+    "volumeFeedback": false,
+    "volumeFeedbackSoundFile": ""
   },
   "brightness": {
     "brightnessStep": 5,
@@ -627,6 +648,20 @@
   },
   "plugins": {
     "autoUpdate": true
+  },
+  "idle": {
+    "enabled": false,
+    "screenOffTimeout": 600,
+    "lockTimeout": 660,
+    "suspendTimeout": 1800,
+    "fadeDuration": 5,
+    "screenOffCommand": "",
+    "lockCommand": "",
+    "suspendCommand": "",
+    "resumeScreenOffCommand": "",
+    "resumeLockCommand": "",
+    "resumeSuspendCommand": "",
+    "customCommands": "[]"
   },
   "desktopWidgets": {
     "enabled": false,

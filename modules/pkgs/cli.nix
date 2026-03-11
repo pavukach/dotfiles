@@ -41,5 +41,6 @@
     unrar
     zip
     unzip
+    p7zip
   ];
 }

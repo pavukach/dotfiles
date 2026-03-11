@@ -11,7 +11,6 @@
     stylix.url = "github:nix-community/stylix";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     sysc-greet.url = "github:Nomadcxx/sysc-greet";
-    mango.url = "github:DreamMaoMao/mango";
     xremap.url = "github:xremap/nix-flake";
 
     helium.inputs.nixpkgs.follows = "nixpkgs";
@@ -19,7 +18,6 @@
     stylix.inputs.nixpkgs.follows = "nixpkgs";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
     sysc-greet.inputs.nixpkgs.follows = "nixpkgs";
-    mango.inputs.nixpkgs.follows = "nixpkgs";
     xremap.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs =

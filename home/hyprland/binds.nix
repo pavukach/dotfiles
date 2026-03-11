@@ -46,6 +46,7 @@
       "$mod, E, exec, $filemanager"
       "$mod ALT, V, exec, vicinae vicinae://extensions/vicinae/clipboard/history"
       "$mod ALT, E, exec, vicinae vicinae://extensions/vicinae/core/search-emojis"
+      "$mod ALT, W, exec, vicinae vicinae://extensions/vicinae/wm/switch-windows"
       "$mod ALT, L, exec, copy-menu links"
 
       "$mod, Q, killactive"
