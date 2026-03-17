@@ -198,11 +198,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773215953,
-        "narHash": "sha256-Zf0+mXwCCeCnKdIpT/FDSTVuuA4jgWRC0kQ2Hm89tUA=",
+        "lastModified": 1773750511,
+        "narHash": "sha256-5toS0RRvoxfxrBzp/oWF5KX3/+3/Ub+qSFOFWhKxCZ0=",
         "owner": "ForkPrince",
         "repo": "nur-packages",
-        "rev": "4c4a6160cc5e6d72004bc2ab1d97ae40a6b2fe09",
+        "rev": "0a68685de1fa3d39bb4ababb02f7b08af1624499",
         "type": "github"
       },
       "original": {
@@ -218,11 +218,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773179137,
-        "narHash": "sha256-EdW2bwzlfme0vbMOcStnNmKlOAA05Bp6su2O8VLGT0k=",
+        "lastModified": 1773681856,
+        "narHash": "sha256-+bRqxoFCJFO9ZTFhcCkzNXbDT3b8AEk88fyjB7Is6eo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "3f98e2bbc661ec0aaf558d8a283d6955f05f1d09",
+        "rev": "57d5560ee92a424fb71fde800acd6ed2c725dfce",
         "type": "github"
       },
       "original": {
@@ -262,13 +262,29 @@
         "type": "github"
       }
     },
-    "nixpkgs": {
+    "nixpkg-freerdp": {
       "locked": {
-        "lastModified": 1772963539,
-        "narHash": "sha256-9jVDGZnvCckTGdYT53d/EfznygLskyLQXYwJLKMPsZs=",
+        "lastModified": 1772188840,
+        "narHash": "sha256-TCcUGketidD4RRwnHBHXug3vc8wJ0KAGIhyw1WdcRuc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "9dcb002ca1690658be4a04645215baea8b95f31d",
+        "rev": "92b637a63e15d2797251e4006b0e82b5c6192911",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "92b637a63e15d2797251e4006b0e82b5c6192911",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1773646010,
+        "narHash": "sha256-iYrs97hS7p5u4lQzuNWzuALGIOdkPXvjz7bviiBjUu8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "5b2c2d84341b2afb5647081c1386a80d7a8d8605",
         "type": "github"
       },
       "original": {
@@ -293,6 +309,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1770107345,
+        "narHash": "sha256-tbS0Ebx2PiA1FRW8mt8oejR0qMXmziJmPaU1d4kYY9g=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "4533d9293756b63904b7238acb84ac8fe4c8c2c4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "noctalia": {
       "inputs": {
         "nixpkgs": [
@@ -301,11 +333,11 @@
         "noctalia-qs": "noctalia-qs"
       },
       "locked": {
-        "lastModified": 1773196620,
-        "narHash": "sha256-2+oZquEDg+5YLxXmEF3R0Kz40gJNLast6JLRgXFGzjs=",
+        "lastModified": 1773755707,
+        "narHash": "sha256-X2Aw5PNzfcE6DpBMSKjbarAsGPA7xeJmutF/8cKChNM=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "13f0b8fce4588bd17c99b53d9cba6d73defed0c2",
+        "rev": "23a5b1de55328ccbc9a4ed38fd30d7fdfdff2461",
         "type": "github"
       },
       "original": {
@@ -320,14 +352,15 @@
           "noctalia",
           "nixpkgs"
         ],
-        "systems": "systems"
+        "systems": "systems",
+        "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1773175685,
-        "narHash": "sha256-YOkWzVq7opym1ovJvSCvqpG6OCDGJwPo/EPeRxcGay4=",
+        "lastModified": 1773514555,
+        "narHash": "sha256-XNmLf4HqUM6/he/eJiHT+Mvxmt7QuwgGU14jB4Ha+pM=",
         "owner": "noctalia-dev",
         "repo": "noctalia-qs",
-        "rev": "6b9eceefde3d47ca83c544b54bcdd358be4cbd2f",
+        "rev": "8aa9d8ce86ef018fb442c585ad7fbb2a15a4f822",
         "type": "github"
       },
       "original": {
@@ -361,14 +394,28 @@
         "type": "github"
       }
     },
+    "orion": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-Q3Qp+cWPe9HtjrKevgbdLV6MK53hnMxeG4ynLkC8zro=",
+        "type": "file",
+        "url": "https://orionbrowser.com/download/oriongtk-early-beta"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://orionbrowser.com/download/oriongtk-early-beta"
+      }
+    },
     "root": {
       "inputs": {
         "helium": "helium",
         "home-manager": "home-manager",
         "nightfox": "nightfox",
         "nix-flatpak": "nix-flatpak",
+        "nixpkg-freerdp": "nixpkg-freerdp",
         "nixpkgs": "nixpkgs",
         "noctalia": "noctalia",
+        "orion": "orion",
         "stylix": "stylix",
         "sysc-greet": "sysc-greet",
         "xremap": "xremap"
@@ -552,6 +599,24 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "base16-zed",
+        "type": "github"
+      }
+    },
+    "treefmt-nix": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1772660329,
+        "narHash": "sha256-IjU1FxYqm+VDe5qIOxoW+pISBlGvVApRjiw/Y/ttJzY=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "3710e0e1218041bbad640352a0440114b1e10428",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
         "type": "github"
       }
     },

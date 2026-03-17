@@ -3,6 +3,7 @@
   lib,
   inputs,
   nixDir,
+  username,
   ...
 }:
 let
@@ -46,17 +47,9 @@ in
     }/bin/sysc-greet; ${pkgs.sway}/bin/swaymsg exit"
   '';
 
-  systemd.user.services.screen-toggle = {
-    unitConfig = {
-      Description = "Disable laptop screen when HDMI connected";
-      After = [ "graphical-session.target" ];
-      PartOf = [ "graphical-session.target" ];
-    };
-    serviceConfig = {
-      Type = "oneshot";
-      Environment = "PATH=${runtimePath}";
-      ExecStart = ../scripts/screen-toggle;
-    };
-    wantedBy = [ "graphical-session.target" ];
-  };
+  home-manager.users."${username}".imports = [
+    {
+      wayland.windowManager.hyprland.settings.exec = [ "${../scripts/screen-toggle}" ];
+    }
+  ];
 }

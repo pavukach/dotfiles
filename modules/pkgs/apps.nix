@@ -12,6 +12,8 @@
     kdePackages.gwenview
     kdePackages.partitionmanager
     freetube
+    winboat
+    vscode
 
     obs-studio
     deepfilternet

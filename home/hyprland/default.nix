@@ -19,7 +19,7 @@
         kb_options = "grp:win_space_toggle";
       };
       monitor = [
-        "eDP-1, disable"
+        # "eDP-1, disable"
       ];
       scrolling = {
         fullscreen_on_one_column = true;

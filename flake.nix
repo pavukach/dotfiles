@@ -1,8 +1,13 @@
 {
   inputs = {
+    nixpkg-freerdp.url = "github:NixOS/nixpkgs/92b637a63e15d2797251e4006b0e82b5c6192911";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nightfox = {
       url = "github:EdenEast/nightfox.nvim";
+      flake = false;
+    };
+    orion = {
+      url = "https://orionbrowser.com/download/oriongtk-early-beta";
       flake = false;
     };
     helium.url = "github:ForkPrince/nur-packages";
@@ -44,6 +49,16 @@
         modules = builtins.concatLists [
           [
             inputs.home-manager.nixosModules.home-manager
+            (
+              { pkgs, stdenv, ... }:
+              {
+                nixpkgs.overlays = [
+                  (final: prev: {
+                    inherit (inputs.nixpkg-freerdp.legacyPackages.${system}) freerdp;
+                  })
+                ];
+              }
+            )
           ]
           (readDir ./host)
           (readDir ./modules)

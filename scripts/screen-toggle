@@ -1,15 +1,27 @@
-#!/usr/bin/env fish
+#!/usr/bin/env ruby
+# frozen_string_literal: true
 
-set tries 5
-for i in (seq $tries)
-    if set -q WAYLAND_DISPLAY; and wlr-randr >/dev/null 2>&1
-        break
-    end
-    sleep 0.25
+tries = 5
+
+tries.times do
+  wayland = ENV['WAYLAND_DISPLAY']
+  wlr_ok = system('wlr-randr > /dev/null 2>&1')
+
+  break if wayland && wlr_ok
+
+  sleep 0.25
 end
 
-if wlr-randr | grep -q '^HDMI-A-1'
-    wlr-randr --output eDP-1 --off
+is_hyprland = ENV['XDG_CURRENT_DESKTOP'] == 'Hyprland'
+
+hdmi_present = `wlr-randr`.lines.any? { |l| l.start_with?('HDMI-A-1') }
+
+if hdmi_present
+  if is_hyprland
+    system('hyprctl keyword monitor eDP-1,disable')
+  else
+    system('wlr-randr --output eDP-1 --off')
+  end
 else
-    wlr-randr --output eDP-1 --on
+  system('wlr-randr --output eDP-1 --on') unless is_hyprland
 end

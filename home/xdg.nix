@@ -66,7 +66,7 @@ in
           "https"
           "ftp"
         ])
-        // (mimeFor "libreoffice.desktop" "application" [
+        // (mimeFor "startcenter.desktop" "application" [
           "msword"
           "vnd.openxmlformats-officedocument.wordprocessingml.document"
           "vnd.ms-excel"
@@ -76,7 +76,7 @@ in
           "vnd.oasis.opendocument.text"
           "vnd.oasis.opendocument.spreadsheet"
           "vnd.oasis.opendocument.presentation"
-          "epub+zip"
+          # "epub+zip"
           "rtf"
         ])
         // {

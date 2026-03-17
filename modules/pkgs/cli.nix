@@ -8,6 +8,7 @@
     wget
     curl
     git
+    git-crypt
     gemini-cli
     qwen-code
 
@@ -43,4 +44,11 @@
     unzip
     p7zip
   ];
+
+  services.pcscd.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = with pkgs; pinentry-gtk2;
+    enableSSHSupport = true;
+  };
 }
