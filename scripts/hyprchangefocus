@@ -1,12 +1,25 @@
-#!/usr/bin/env fish
+#!/usr/bin/env ruby
+# frozen_string_literal: true
 
-set direction $argv[1]
-set changeto $argv[2]
+# set direction $argv[1]
+# set changeto $argv[2]
+#
+# set pre (hyprctl -j activewindow | jq -r '.address')
+# hyprctl dispatch movefocus $direction
+# set post (hyprctl -j activewindow | jq -r '.address')
+#
+# if [ $pre = $post ]
+#   hyprctl dispatch workspace $changeto
+# end
 
-set pre (hyprctl -j activewindow | jq -r '.address')
-hyprctl dispatch movefocus $direction
-set post (hyprctl -j activewindow | jq -r '.address')
+direction = ARGV[0]
 
-if [ $pre = $post ]
-  hyprctl dispatch workspace $changeto
+res = `hyprctl dispatch movefocus #{direction}`
+
+res.chomp exit if res == 'ok'
+
+if %w[l u left up].include?(direction)
+  system 'hyprctl dispatch workspace -1'
+else
+  system 'hyprctl dispatch workspace +1'
 end

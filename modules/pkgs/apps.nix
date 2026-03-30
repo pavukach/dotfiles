@@ -12,7 +12,7 @@
     kdePackages.gwenview
     kdePackages.partitionmanager
     freetube
-    winboat
+    # winboat
     vscode
 
     obs-studio

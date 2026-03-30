@@ -14,6 +14,7 @@ in
     configFile."user-dirs.dirs".force = true;
     userDirs = {
       enable = true;
+      setSessionVariables = true;
       createDirectories = true;
 
       documents = "$HOME/docs";

@@ -30,6 +30,9 @@
       exec-once = [
         "noctalia-shell"
       ];
+      misc = {
+        initial_workspace_tracking = 2;
+      };
     };
   };
   xdg.configFile."uwsm/env".source =

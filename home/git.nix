@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.git = {
     enable = true;
@@ -12,6 +12,9 @@
       init.defaultBranch = "main";
       advice.defaultBranchName = false;
 
+      core.pager = "delta";
+      interactive.diffFilter = "delta --color-only";
+      delta.navigate = true;
       diff.tool = "codediff";
       merge.tool = "codediff";
       mergetool.codediff.cmd = ''nvim "$MERGED" -c "CodeDiff merge \"$MERGED\""'';
@@ -23,6 +26,11 @@
       ".qwenignore"
       "shell.nix"
       ".envrc"
+      ".direnv"
     ];
   };
+
+  home.packages = with pkgs; [
+    delta
+  ];
 }

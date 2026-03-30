@@ -7,7 +7,6 @@ mark_tag = 'fullscreen'
 size_prefix = 'was_'
 
 win = JSON.parse(`hyprctl activewindow -j`)
-addr = win['address']
 width = win['size'][0]
 
 mon = JSON.parse(`hyprctl monitors -j`)
@@ -15,20 +14,22 @@ mon_width = mon[0]['width']
 tags = win['tags'] || []
 
 if !tags.include?(mark_tag)
-  rel = width.to_f / mon_width
+  rel = (width.to_f / mon_width).ceil(1)
+  rel_s = rel.to_s.sub('.', '_')
 
-  system("hyprctl dispatch tagwindow #{mark_tag} address:#{addr}")
-  system("hyprctl dispatch tagwindow #{size_prefix}#{rel.round(4).to_s.sub('.', '_')} address:#{addr}")
+  system("hyprctl dispatch tagwindow #{mark_tag}")
+  system("hyprctl dispatch tagwindow #{size_prefix}#{rel_s}")
   system('hyprctl dispatch layoutmsg colresize 1')
 
 else
   was = tags.find { |t| t.start_with?(size_prefix) }
   if was
-    val = was.sub(size_prefix, '').sub('_', '.').to_f.round(3)
+    val = was.sub(size_prefix, '').sub('_', '.').to_f
+    puts "val: #{val}"
 
-    system("hyprctl dispatch tagwindow -- -#{was} address:#{addr}")
+    system("hyprctl dispatch tagwindow -- -#{was}")
     system("hyprctl dispatch layoutmsg colresize #{val}")
   end
 
-  system("hyprctl dispatch tagwindow -- -#{mark_tag} address:#{addr}")
+  system("hyprctl dispatch tagwindow -- -#{mark_tag}")
 end

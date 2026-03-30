@@ -41,6 +41,7 @@
     };
   };
 
+  gtk.gtk4.theme = null;
   home.sessionVariables = {
     XCURSOR_THEME = "Bibata-Modern-Ice";
     XCURSOR_SIZE = "24";

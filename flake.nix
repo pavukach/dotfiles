@@ -62,6 +62,7 @@
           ]
           (readDir ./host)
           (readDir ./modules)
+          (readDir ./secrets)
           [
             {
               home-manager = {

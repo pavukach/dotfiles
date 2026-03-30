@@ -11,6 +11,8 @@
     git-crypt
     gemini-cli
     qwen-code
+    cursor-cli
+    github-copilot-cli
 
     eza
     bat
@@ -22,6 +24,7 @@
     btop
     gdu
     fastfetch
+    lazygit
     tldr
     plocate
     unixtools.netstat
@@ -45,10 +48,12 @@
     p7zip
   ];
 
-  services.pcscd.enable = true;
+  # services.pcscd.enable = true;
   programs.gnupg.agent = {
     enable = true;
     pinentryPackage = with pkgs; pinentry-gtk2;
     enableSSHSupport = true;
   };
+
+  programs.firejail.enable = true;
 }

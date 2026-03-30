@@ -56,8 +56,8 @@
       "$mod, F, exec, hyprfullscreen"
 
       "$mod, H, movefocus, l"
-      "$mod, J, exec, hyprchangefocus d r+1"
-      "$mod, K, exec, hyprchangefocus u r-1"
+      "$mod, J, exec, hyprchangefocus d"
+      "$mod, K, exec, hyprchangefocus u"
       "$mod, L, movefocus, r"
       "$mod SHIFT, H, layoutmsg, swapcol l"
       "$mod SHIFT, J, movewindow, d"
