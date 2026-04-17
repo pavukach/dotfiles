@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     xwayland-satellite
+    brogue-ce
   ];
 
   services.logmein-hamachi.enable = true;

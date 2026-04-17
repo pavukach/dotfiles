@@ -1,15 +1,21 @@
+{ lib, ... }:
 let
   scriptsDir = ../scripts;
-  scripts = builtins.attrNames (builtins.readDir scriptsDir);
+  files = builtins.filter (path: lib.pathIsRegularFile path) (
+    lib.filesystem.listFilesRecursive scriptsDir
+  );
+  fileName = path: builtins.baseNameOf path;
 in
 {
-  home.file = builtins.listToAttrs (map (name: {
-    name = ".local/bin/${name}";
-    value = {
-      source = "${scriptsDir}/${name}";
-      executable = true;
-    };
-  }) scripts);
+  home.file = builtins.listToAttrs (
+    map (path: {
+      name = ".local/bin/${fileName path}";
+      value = {
+        source = path;
+        executable = true;
+      };
+    }) files
+  );
 
   home.sessionPath = [ "$HOME/.local/bin" ];
 }

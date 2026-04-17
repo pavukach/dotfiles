@@ -1,0 +1,115 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+input = File.read(ARGV[0])
+
+result_lines = []
+current_line = +''
+i = 0
+
+state = :normal
+escape = false
+
+line_had_code = false
+line_original_empty = true
+
+while i < input.length
+  c = input[i]
+  next_c = input[i + 1]
+
+  line_original_empty = false if c != "\n" && !c.match?(/\s/)
+
+  case state
+  when :line_comment
+    if c == "\n"
+      state = :normal
+      result_lines << "#{current_line}\n" if line_had_code || line_original_empty
+      current_line = +''
+      line_had_code = false
+      line_original_empty = true
+    end
+
+  when :block_comment
+    if c == '*' && next_c == '/'
+      state = :normal
+      i += 1
+    end
+    if c == "\n"
+      result_lines << "#{current_line}\n" if line_had_code || line_original_empty
+      current_line = +''
+      line_had_code = false
+      line_original_empty = true
+    end
+
+  when :single_quote
+    current_line << c
+    line_had_code = true unless c.match?(/\s/)
+    if escape
+      escape = false
+    elsif c == '\\'
+      escape = true
+    elsif c == "'"
+      state = :normal
+    end
+    if c == "\n"
+      result_lines << current_line if line_had_code || line_original_empty
+      current_line = +''
+      line_had_code = false
+      line_original_empty = true
+    end
+
+  when :double_quote
+    current_line << c
+    line_had_code = true unless c.match?(/\s/)
+    if escape
+      escape = false
+    elsif c == '\\'
+      escape = true
+    elsif c == '"'
+      state = :normal
+    end
+    if c == "\n"
+      result_lines << current_line if line_had_code || line_original_empty
+      current_line = +''
+      line_had_code = false
+      line_original_empty = true
+    end
+
+  when :normal
+    if c == '/' && next_c == '/'
+      state = :line_comment
+      i += 1
+    elsif c == '/' && next_c == '*'
+      state = :block_comment
+      i += 1
+    elsif c == "'"
+      state = :single_quote
+      current_line << c
+      line_had_code = true
+    elsif c == '"'
+      state = :double_quote
+      current_line << c
+      line_had_code = true
+    elsif c == "\n"
+      result_lines << "#{current_line}\n" if line_had_code || line_original_empty
+      current_line = +''
+      line_had_code = false
+      line_original_empty = true
+    else
+      current_line << c
+      line_had_code = true unless c.match?(/\s/)
+    end
+  end
+
+  i += 1
+end
+
+result_lines << current_line if !current_line.empty? && (line_had_code || line_original_empty)
+
+output = result_lines.join
+
+if ARGV[1]
+  File.write(ARGV[1], output)
+else
+  puts output
+end

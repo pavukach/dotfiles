@@ -1,4 +1,9 @@
-{ inputs, lib, pkgs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [
     inputs.noctalia.homeModules.default
@@ -6,7 +11,7 @@
 
   programs.noctalia-shell = {
     enable = true;
-    settings = lib.mkForce (builtins.fromJSON (builtins.readFile ../config/noctalia/settings.json));
+    settings = lib.mkForce (builtins.fromJSON (builtins.readFile ../config/noctalia.json));
     colors = lib.mkForce {
       mError = "#ffb2bf";
       mOnError = "#561d2b";
@@ -32,14 +37,9 @@
           name = "Official Noctalia Plugins";
           url = "https://github.com/noctalia-dev/noctalia-plugins";
         }
-        {
-          enabled = true;
-          name = "Slow Bongo";
-          url = "https://github.com/tuibird/slowbongo.git";
-        }
       ];
       states = {
-        screen-shot-and-record = {
+        screen-toolkit = {
           enabled = true;
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
@@ -47,21 +47,47 @@
           enabled = true;
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
-        "805fa1:slowbongo" = {
+        "slowbongo" = {
           enabled = true;
-          sourceUrl = "https://github.com/tuibird/slowbongo.git";
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
       };
       version = 2;
     };
 
     pluginSettings = {
-      privacy-indicator = ../config/noctalia/plugins/privacy-indicator.json;
-      "805fa1:slowbongo" = ../config/noctalia/plugins/slowbongo.json;
+      privacy-indicator = {
+        hideInactive = true;
+        iconSpacing = 4;
+      };
+      slowbongo = {
+        catSize = 1;
+        catOffsetY = 0;
+        raveMode = false;
+        tappyMode = true;
+        inputDevices = [ "/dev/input/event10" ];
+      };
+      screen-toolkit = {
+        videoPath = "~/media/videos/";
+        screenshotPath = "~/media/pictures/";
+      };
     };
   };
 
   home.packages = with pkgs; [
     evtest
+    cava
+    grim
+    slurp
+    wl-clipboard
+    tesseract
+    imagemagick
+    zbar
+    curl
+    translate-shell
+    wl-screenrec
+    ffmpeg
+    gifski
+    jq
   ];
 }

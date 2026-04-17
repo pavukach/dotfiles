@@ -10,20 +10,39 @@
       url = "https://orionbrowser.com/download/oriongtk-early-beta";
       flake = false;
     };
-    helium.url = "github:ForkPrince/nur-packages";
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
-    home-manager.url = "github:nix-community/home-manager";
-    stylix.url = "github:nix-community/stylix";
-    noctalia.url = "github:noctalia-dev/noctalia-shell";
-    sysc-greet.url = "github:Nomadcxx/sysc-greet";
-    xremap.url = "github:xremap/nix-flake";
 
-    helium.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    stylix.inputs.nixpkgs.follows = "nixpkgs";
-    noctalia.inputs.nixpkgs.follows = "nixpkgs";
-    sysc-greet.inputs.nixpkgs.follows = "nixpkgs";
-    xremap.inputs.nixpkgs.follows = "nixpkgs";
+    helium = {
+      url = "github:ForkPrince/nur-packages";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    sysc-greet = {
+      url = "github:Nomadcxx/sysc-greet";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    xremap = {
+      url = "github:xremap/nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     { self, nixpkgs, ... }@inputs:

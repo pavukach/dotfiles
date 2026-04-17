@@ -38,7 +38,8 @@
       "$mod ALT, G, exec, perf-mode"
 
       "$mod, S, exec, noctalia-shell ipc call settings toggle"
-      ", Print, exec, noctalia-shell ipc call plugin:screen-shot-and-record screenshot"
+      ", Print, exec, noctalia-shell ipc call plugin:screen-toolkit annotate"
+      "SHIFT, Print, exec, noctalia-shell ipc call plugin:screen-toolkit toggle"
 
       "$mod, Return, exec, $terminal"
       "$mod SHIFT, Return, exec, toggleterm"
@@ -53,11 +54,11 @@
       "$mod SHIFT, Q, forcekillactive"
       "$mod, V, togglefloating"
       "$mod CTRL, F, fullscreen"
-      "$mod, F, exec, hyprfullscreen"
+      "$mod, F, exec, hypr-fullscreen"
 
       "$mod, H, movefocus, l"
-      "$mod, J, exec, hyprchangefocus d"
-      "$mod, K, exec, hyprchangefocus u"
+      "$mod, J, exec, hypr-change-focus d"
+      "$mod, K, exec, hypr-change-focus u"
       "$mod, L, movefocus, r"
       "$mod SHIFT, H, layoutmsg, swapcol l"
       "$mod SHIFT, J, movewindow, d"
@@ -80,6 +81,7 @@
           "$mod, code:1${toString i}, workspace, ${toString ws}"
           "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
           "$mod CTRL, code:1${toString i}, movetoworkspacesilent, ${toString ws}"
+          "$mod ALT, code:1${toString i}, exec, hypr-swap-workspaces, ${toString ws}"
         ]
       ) 9
     ));

@@ -2,6 +2,7 @@ local modes = {
   n = "lualine_a_normal",
   i = "lualine_a_insert",
   v = "lualine_a_visual",
+  t = "lualine_a_terminal",
   V = "lualine_a_visual",
   [""] = "lualine_a_visual",
   c = "lualine_a_command",
@@ -47,18 +48,41 @@ local function restore_border()
   hypr({
     "dispatch",
     "tagwindow",
+    "--",
     "-neovim",
   })
 end
 
+local function wait_for_hl(name, cb, retries)
+  local ok, hl = pcall(vim.api.nvim_get_hl, 0, { name = name })
+  if ok and hl and hl.bg then
+    cb()
+    return
+  end
+
+  if retries <= 0 then
+    return
+  end
+
+  vim.defer_fn(function()
+    wait_for_hl(name, cb, retries - 1)
+  end, 30)
+end
+
 local group = vim.api.nvim_create_augroup("HyprBorderSync", { clear = true })
 
-vim.api.nvim_create_autocmd({"VimEnter", "ModeChanged", "FocusGained"}, {
+vim.api.nvim_create_autocmd("UIEnter", {
+  group = group,
+  callback = function()
+    wait_for_hl("lualine_a_normal", set_mode_border, 10)
+  end,
+})
+vim.api.nvim_create_autocmd({ "ModeChanged", "FocusGained" }, {
   group = group,
   callback = set_mode_border,
 })
 
-vim.api.nvim_create_autocmd("FocusLost", {
+vim.api.nvim_create_autocmd({ "FocusLost", "VimLeave" }, {
   group = group,
   callback = restore_border,
 })

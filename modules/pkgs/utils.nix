@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   environment.systemPackages = with pkgs; [
     xdg-utils
@@ -6,11 +6,7 @@
     wlr-randr
     trash-cli
     dragon-drop
-    wayfreeze
     luarocks
-    grim
-    swappy
-    wf-recorder
   ];
 
   fonts.packages = with pkgs; [

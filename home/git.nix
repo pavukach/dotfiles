@@ -6,6 +6,7 @@
       user.name = "Maksym Diachok";
       user.email = "maksdyachok2005@gmail.com";
       push.default = "current";
+      branch.autoSetupMerge = "always";
       color.ui = "auto";
       core.editor = "vim";
       pull.rebase = "true";
@@ -24,10 +25,25 @@
       ".geminiignore"
       "GEMINI.md"
       ".qwenignore"
+      ".qwen/"
       "shell.nix"
       ".envrc"
-      ".direnv"
+      ".direnv/"
     ];
+  };
+
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      git.pagers = [
+        {
+          pager = ''
+            delta --dark --paging=never \
+                      --line-numbers --hyperlinks \
+                      --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"'';
+        }
+      ];
+    };
   };
 
   home.packages = with pkgs; [

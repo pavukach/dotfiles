@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'json'
+
+from = JSON.parse(`hyprctl activeworkspace -j`)['name']
+to = ARGV[0]
+
+JSON.parse(`hyprctl clients -j`)
+    .select { |c| [from, to].include? c['workspace']['name'] }
+    .sort_by { |c| c['at'][0] }
+    .each do |c|
+      system "hyprctl dispatch movetoworkspace #{c['workspace']['name'] == from ? to : from},address:#{c['address']}"
+    end
+
+system "hyprctl dispatch workspace #{to}"

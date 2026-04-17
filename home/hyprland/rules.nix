@@ -22,7 +22,7 @@ let
       mk-rule = key: pattern: {
         name = "${name}-${key}-${pattern}";
         "match:${key}" = normalize-pattern pattern;
-        workspace = workspace-id;
+        workspace = "${workspace-id} silent";
       };
     in
     (map (mk-rule "class") class-patterns) ++ (map (mk-rule "title") title-patterns);
@@ -52,13 +52,13 @@ in
       }
       {
         name = "keep-render-games";
-        "match:class" = "^(steam_app_.*|gamescope|SteamGame)$";
+        "match:class" = "^(steam_proton|steam_app_.*|gamescope|SteamGame)$";
         render_unfocused = true;
       }
     ]
     ++ workspace-rules {
       name = "social";
-      workspace = 4;
+      workspace = 5;
       class-patterns = [
         "vesktop"
         "com.ayugram.desktop"
@@ -71,7 +71,7 @@ in
     }
     ++ workspace-rules {
       name = "games";
-      workspace = 5;
+      workspace = 6;
       class-patterns = [
         "steam_app_*"
         "gamescope"
