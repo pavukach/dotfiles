@@ -18,5 +18,4 @@
 
   programs.gamemode.enable = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
 }

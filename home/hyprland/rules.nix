@@ -22,7 +22,7 @@ let
       mk-rule = key: pattern: {
         name = "${name}-${key}-${pattern}";
         "match:${key}" = normalize-pattern pattern;
-        workspace = "${workspace-id} silent";
+        workspace = workspace-id;
       };
     in
     (map (mk-rule "class") class-patterns) ++ (map (mk-rule "title") title-patterns);
@@ -71,7 +71,7 @@ in
     }
     ++ workspace-rules {
       name = "games";
-      workspace = 6;
+      workspace = "6 silent";
       class-patterns = [
         "steam_app_*"
         "gamescope"

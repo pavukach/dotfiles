@@ -25,7 +25,6 @@
     };
   };
 
-  documentation.enable = false;
 
   programs.nix-ld = {
     enable = true;
@@ -36,6 +35,12 @@
       curl
     ];
   };
+
+  documentation.enable = false;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+  zramSwap.enable = true;
+  services.earlyoom.enable = false;
+  systemd.oomd.enable = true;
 
   networking.hostName = "nixos";
   system.stateVersion = "25.11";

@@ -1,1 +1,2 @@
 secrets/* filter=git-crypt diff=git-crypt
+config/copy-menu/* filter=git-crypt diff=git-crypt

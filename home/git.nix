@@ -5,11 +5,10 @@
     settings = {
       user.name = "Maksym Diachok";
       user.email = "maksdyachok2005@gmail.com";
-      push.default = "current";
-      branch.autoSetupMerge = "always";
+      push.autoSetupRemote = true;
       color.ui = "auto";
       core.editor = "vim";
-      pull.rebase = "true";
+      pull.rebase = true;
       init.defaultBranch = "main";
       advice.defaultBranchName = false;
 
