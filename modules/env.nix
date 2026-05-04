@@ -1,6 +1,6 @@
-{ inputs, nixDir, pkgs, ... }:
+{ inputs, pkgs, nixDir, ... }:
 {
-  home.sessionVariables = {
+  hm.home.sessionVariables = {
     # ANDROID_SDK_ROOT = "$HOME/Android/Sdk";
     CHROME_EXECUTABLE = "${inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.helium-nightly}/bin/helium";
     PATH = "$HOME/flutter/bin:$PATH";
@@ -13,6 +13,6 @@
     BROWSER = "helium";
     TERMINAL = "kitty";
 
-    NIX_DIR = "${nixDir}";
+    NIX_DIR = nixDir;
   };
 }

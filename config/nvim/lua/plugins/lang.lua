@@ -3,6 +3,9 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
+        gdscript = {
+          name = "gdscript",
+        },
         clangd = {
           cmd = {
             "clangd",
@@ -49,10 +52,5 @@ return {
       "dmmulroy/ts-error-translator.nvim",
       opts = {},
     },
-  },
-  {
-    "lommix/godot.nvim",
-    ft = "gdscript",
-    cmd = { "GodotDebug", "GodotBreakAtCursor", "GodotStep", "GodotQuit", "GodotContinue" },
   },
 }

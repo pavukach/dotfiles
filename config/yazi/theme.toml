@@ -1,12 +1,15 @@
 [icon]
 dirs = [
-  { name = "docs", text = "󰲂" },
   { name = "downloads", text = "󰉍" },
+  { name = "projects", text = "󰲋" },
+  { name = "documents", text = "󰲂" },
   { name = "music", text = "󱍙" },
   { name = "pictures", text = "󰉏" },
-  { name = "videos", text = "󰉒" },
-  { name = "media", text = "󱧺" },
+  { name = "videos", text = "󱧺" },
   { name = "public", text = "󰉌" },
-  { name = "tmp", text = "󰪺" },
-  { name = "dev", text = "󰲋" },
+  { name = "templates", text = "󰉓" },
+  { name = "bin", text = "󱁿" },
+  { name = ".git", text = "" },
+  { name = "nixos", text = "" },
+{ name = "node_modules", text = "" }
 ]

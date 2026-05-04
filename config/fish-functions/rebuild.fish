@@ -8,16 +8,22 @@ function rebuild
         return 1
     end
 
-    pushd $NIX_DIR
+    argparse u t -- $argv
+
     sudo -v
+    pushd $NIX_DIR
     git add .
 
-    argparse u -- $argv
+    nix-shell https://github.com/vic/flake-file/archive/main.tar.gz -A flake-file.sh --run bootstrap
     if set -q _flag_u
         nix flake update
-        # nix run github:fzakaria/nix-auto-follow -- -i
     end
-    sudo nixos-rebuild switch --flake . --impure 
+
+    set rebuild_args
+    if set -q _flag_t
+        set rebuild_args --show-trace
+    end
+    nh os switch . --impure $rebuild_args
 
     popd
 end

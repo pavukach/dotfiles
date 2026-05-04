@@ -15,10 +15,6 @@
   services.sysc-greet = {
     enable = true;
     compositor = "sway";
-    # settings.initial_session = {
-    #   command = "niri-session";
-    #   user = "maksym";
-    # };
   };
 
 }

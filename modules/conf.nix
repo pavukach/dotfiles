@@ -1,6 +1,5 @@
 {
-  pkgs,
-  nixDir,
+  pkgs, self, pkgsConfig,
   ...
 }:
 {
@@ -8,7 +7,7 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 5";
-    flake = nixDir;
+    flake = self.outPath;
   };
 
   nix = {
@@ -24,6 +23,7 @@
       trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
   };
+  nixpkgs.config = pkgsConfig;
 
 
   programs.nix-ld = {

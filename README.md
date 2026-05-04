@@ -8,11 +8,10 @@ Basically my personal files for nixos
 
 ### Cloning
 
-run following commands:
+run following command:
 
 ```
-cd ~
-git clone https://github.com/BbIXOD/dotfiles nixos
+git clone https://github.com/BbIXOD/dotfiles ~/nixos
 ```
 
 ### Configuring
@@ -25,7 +24,7 @@ Review other files there.
 `flake.nix` has some variables like username,
 you may want to change them.
 
-### Rebuilding 
+### Rebuilding
 
 ```
 cd ~/nixos/
@@ -35,16 +34,14 @@ sudo nixos-rebuild switch \
   --impure
 ```
 
+After first rebuild you can use `rebuild` script (pass -u to update)
 
 ### Post install manual steps
 
-- for unity plugin
-  `dotnet add package Microsoft.Unity.Analyzers --version 1.19.0` and so on
-  at [nvim-unity](https://github.com/walcht/neovim-unity?tab=readme-ov-file)
 - ofc steam and bottles are manual
 - prob get wallpapers
 - reduce mic internal boost with aslactl
 
 ## Home manager standalone
 
-nope for now. you may try to implement it though.
+I aim to not differentiate home manager config with nixos config, so not.

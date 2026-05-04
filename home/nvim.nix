@@ -1,21 +1,32 @@
-{ pkgs, config, nixDir, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
-mkLink = config.lib.file.mkOutOfStoreSymlink;
+  link-tree = import ../lib/link-tree.nix {
+    inherit lib;
+    inherit (config.lib.file) mkOutOfStoreSymlink;
+  };
 in
 {
   programs.neovim = {
     enable = true;
-    withRuby = false;
+    withRuby = true;
     withPython3 = false;
     withNodeJs = false;
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
     ];
+    extraConfig = ''lua require("config.lazy")'';
   };
-  xdg.configFile.nvim.source = mkLink "${nixDir}/config/nvim";
+  xdg.configFile = link-tree {
+    source = ../config/nvim;
+    target = "nvim";
+  };
   home.packages = with pkgs; [
     nixfmt
     nil
   ];
 }
-

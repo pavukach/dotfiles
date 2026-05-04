@@ -1,4 +1,4 @@
-{ lib, ... }:
+_:
 let
   mimeFor =
     app: category: exts:
@@ -17,13 +17,14 @@ in
       setSessionVariables = true;
       createDirectories = true;
 
-      documents = "$HOME/docs";
       download = "$HOME/downloads";
-      music = "$HOME/media/music";
-      pictures = "$HOME/media/pictures";
-      videos = "$HOME/media/videos";
-      desktop = "$HOME/tmp";
-      templates = "$HOME/tmp";
+      projects = "$HOME/projects";
+      documents = "$HOME/documents";
+      music = "$HOME/music";
+      pictures = "$HOME/pictures";
+      videos = "$HOME/videos";
+      desktop = "$HOME/desktop";
+      templates = "$HOME/templates";
       publicShare = "$HOME/public";
     };
     mime.enable = true;
