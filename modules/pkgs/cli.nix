@@ -13,7 +13,6 @@
     github-copilot-cli
     codex
     opencode
-    windsurf
 
     eza
     bat

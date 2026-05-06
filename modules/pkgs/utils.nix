@@ -6,7 +6,6 @@
     wlr-randr
     trash-cli
     dragon-drop
-    luarocks
   ];
 
   fonts.packages = with pkgs; [

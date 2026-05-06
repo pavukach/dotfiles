@@ -1,10 +1,6 @@
 { lib, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    marksman
-    statix
-    clang-tools
-    rust-analyzer
 
     flutter
     nodejs
