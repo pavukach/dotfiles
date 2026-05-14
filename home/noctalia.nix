@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   lib,
   pkgs,
@@ -68,15 +69,14 @@
         inputDevices = [ "/dev/input/event10" ];
       };
       screen-toolkit = {
-        videoPath = "~/media/videos/";
-        screenshotPath = "~/media/pictures/";
+        videoPath = config.xdg.userDirs.videos;
+        screenshotPath = config.xdg.userDirs.pictures;
       };
     };
   };
 
   home.packages = with pkgs; [
     evtest
-    cava
     grim
     slurp
     wl-clipboard

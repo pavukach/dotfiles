@@ -41,7 +41,6 @@ After first rebuild you can use `rebuild` script (pass -u to update)
 - ofc steam and bottles are manual
 - prob get wallpapers
 - reduce mic internal boost with aslactl
-- in neovim run `:TSUpdate` if nvim-managed parsers not included
 
 ## Home manager standalone
 

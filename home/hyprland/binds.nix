@@ -45,9 +45,9 @@
       "$mod SHIFT, Return, exec, toggleterm"
       "$mod, D, exec, $menu"
       "$mod, E, exec, $filemanager"
-      "$mod ALT, V, exec, vicinae vicinae://extensions/vicinae/clipboard/history"
-      "$mod ALT, E, exec, vicinae vicinae://extensions/vicinae/core/search-emojis"
-      "$mod ALT, W, exec, vicinae vicinae://extensions/vicinae/wm/switch-windows"
+      "$mod ALT, V, exec, vicinae vicinae://launch/clipboard/history?toggle=true"
+      "$mod ALT, E, exec, vicinae vicinae://launch/core/search-emojis?toggle=true"
+      "$mod ALT, W, exec, vicinae vicinae://launch/wm/switch-windows?toggle=true"
       "$mod ALT, L, exec, copy-menu links"
 
       "$mod, Q, killactive"

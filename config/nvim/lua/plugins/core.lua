@@ -14,15 +14,6 @@ return {
     },
   },
   {
-    "Wansmer/langmapper.nvim",
-    priority = 1,
-    lazy = false,
-    vscode = false,
-    opts = {
-      hack_keymap = true,
-    },
-  },
-  {
     "gaoDean/autolist.nvim",
     ft = {
       "markdown",

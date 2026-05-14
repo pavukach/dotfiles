@@ -8,12 +8,13 @@
     dotnet-sdk
     gcc
     dart
-    supabase-cli
+    crystal
+    ruby
     rustc
     cargo
     jdk
     godot
-    ruby
+    android-studio
 
     gnumake
     cmake

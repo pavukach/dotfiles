@@ -26,7 +26,9 @@
         plugins = with pkgs.vimPlugins; [
           nvim-treesitter.withAllGrammars
         ];
-        extraConfig = ''lua require("config.lazy")'';
+        extraConfig = ''
+        lua require("config.lazy")
+        lua require("langmapper").automapping({ global = true, buffer = true })'';
       };
       xdg.configFile =
         link-tree {
