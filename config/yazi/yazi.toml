@@ -1,9 +1,0 @@
-[opener]
-krita = [
-  { run = 'krita "$@"', orphan = true, desc = "krita", block = false },
-]
-
-[open]
-prepend_rules = [
-  { mime = "image/*", use = [ "open", "krita", "reveal" ] }
-]
