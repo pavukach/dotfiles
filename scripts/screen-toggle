@@ -16,12 +16,14 @@ is_hyprland = ENV['XDG_CURRENT_DESKTOP'] == 'Hyprland'
 
 hdmi_present = `wlr-randr`.lines.any? { |l| l.start_with?('HDMI-A-1') }
 
+if is_hyprland
+  # end script
+  
+end
+
+
 if hdmi_present
-  if is_hyprland
-    system('hyprctl keyword monitor eDP-1,disable')
-  else
-    system('wlr-randr --output eDP-1 --off')
-  end
+    system('wlr-randr --output eDP-1 --off') unless is_hyprland
 else
   system('wlr-randr --output eDP-1 --on') unless is_hyprland
 end

@@ -1,4 +1,10 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   imports = [ inputs.stylix.homeModules.stylix ];
   stylix = {
@@ -41,10 +47,8 @@
     };
   };
 
-  gtk.gtk4.theme = null;
   home.sessionVariables = {
     XCURSOR_THEME = "Bibata-Modern-Ice";
     XCURSOR_SIZE = "24";
   };
-
 }

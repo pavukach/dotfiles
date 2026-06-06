@@ -9,14 +9,16 @@
     curl
     git
     git-crypt
+
     gemini-cli
-    github-copilot-cli
-    codex
+    code-cursor
+    cursor-cli
     opencode
 
     eza
     bat
     fd
+    sd
     ripgrep
     fzf
     zoxide

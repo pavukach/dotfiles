@@ -31,7 +31,7 @@ in
     mimeApps = {
       enable = true;
       defaultApplications =
-        (mimeFor "org.kde.gwenview.desktop" "image" [
+        (mimeFor "qimgv.desktop" "image" [
           "png"
           "jpeg"
           "jpg"

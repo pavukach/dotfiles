@@ -23,8 +23,6 @@
     ignores = [
       ".geminiignore"
       "GEMINI.md"
-      ".qwen/"
-      ".codex/"
       "shell.nix"
       ".envrc"
       ".direnv/"

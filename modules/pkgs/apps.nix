@@ -6,10 +6,10 @@
     vlc
     krita
     qbittorrent
-    qalculate-gtk
+    qalculate-qt
+    qimgv
     kdePackages.kdenlive
     kdePackages.okular
-    kdePackages.gwenview
     kdePackages.partitionmanager
     freetube
     # winboat

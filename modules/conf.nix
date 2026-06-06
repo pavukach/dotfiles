@@ -41,6 +41,7 @@
   zramSwap.enable = true;
   services.earlyoom.enable = false;
   systemd.oomd.enable = true;
+  boot.tmp.cleanOnBoot = true;
 
   networking.hostName = "nixos";
   system.stateVersion = "25.11";

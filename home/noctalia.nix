@@ -69,8 +69,8 @@
         inputDevices = [ "/dev/input/event10" ];
       };
       screen-toolkit = {
-        videoPath = config.xdg.userDirs.videos;
-        screenshotPath = config.xdg.userDirs.pictures;
+        videoPath = "${config.xdg.userDirs.videos}/screencasts";
+        screenshotPath = "${config.xdg.userDirs.pictures}/screenshots";
       };
     };
   };
