@@ -27,6 +27,13 @@ hl.config({
 	},
 })
 
+local function toggle_monitor()
+	hl.monitor({ output = "eDP-1", disabled = hl.get_monitor("HDMI-A-1") ~= nil })
+end
+
+hl.on("monitor.added", toggle_monitor)
+hl.on("monitor.removed", toggle_monitor)
+
 hl.on("hyprland.start", function()
 	hl.exec_cmd("noctalia-shell")
 end)
@@ -37,5 +44,4 @@ hl.monitor({
 	mode = "1920x1080@60",
 	position = "0x0",
 	scale = 1.25,
-	disabled = hl.get_monitor("HDMI-A-1") ~= nil,
 })
