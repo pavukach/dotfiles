@@ -2,6 +2,7 @@
   pkgs,
   lib,
   inputs,
+  self,
   username,
   ...
 }:
@@ -36,7 +37,7 @@ in
     # hide cursor after 1 second of inactivity
     seat * hide_cursor 1000
 
-    exec "PATH=${runtimePath} ${../scripts/screen-toggle}"
+    exec "PATH=${runtimePath} ${self.outPath}/scripts/screen-toggle"
 
     # Startup applications
     # Start gslapper with default wallpaper (forked to background with IPC socket)
@@ -48,7 +49,7 @@ in
 
   home-manager.users."${username}".imports = [
     {
-      wayland.windowManager.hyprland.settings.exec = [ "${../scripts/screen-toggle}" ];
+      wayland.windowManager.hyprland.settings.exec = [ "${self.outPath}/scripts/screen-toggle" ];
     }
   ];
 }

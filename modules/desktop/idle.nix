@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  services.swayidle = {
+  hm.services.swayidle = {
     enable = true;
     timeouts = [
       {

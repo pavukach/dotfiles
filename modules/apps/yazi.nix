@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, self, ... }:
 let
   make-keymap = on: command: desc: { inherit on command desc; };
   make-keymap-s = on: command: { inherit on command; };
@@ -8,7 +8,7 @@ in
   hm.programs.yazi = {
     enable = true;
     shellWrapperName = "y";
-    initLua = ../config/yazi.lua;
+    initLua = "${self.outPath}/config/yazi.lua";
     settings = {
       opener = {
         krita = [

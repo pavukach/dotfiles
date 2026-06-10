@@ -22,8 +22,6 @@
       mkLink = config.lib.file.mkOutOfStoreSymlink;
     in
     {
-      imports = [ (inputs.import-tree ../home) ];
-
       home.stateVersion = "25.11";
       xdg.configFile = {
         copy-menu.source = mkLink "${self.outPath}/config/copy-menu";

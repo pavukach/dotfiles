@@ -53,11 +53,11 @@ bind("mouse:272", hl.dsp.window.drag())
 bind("mouse:273", hl.dsp.window.drag())
 
 -- Locked media/hardware keys
-bind("XF86AudioRaiseVolume", "noctalia-shell ipc call volume increase", { no_mod = true, repeating = true })
-bind("XF86AudioLowerVolume", "noctalia-shell ipc call volume decrease", { no_mod = true, repeating = true })
-bind("XF86AudioMute", "noctalia-shell ipc call volume muteOutput", { no_mod = true, locked = true })
-bind("XF86MonBrightnessUp", "noctalia-shell ipc call brightness increase", { no_mod = true, repeating = true })
-bind("XF86MonBrightnessDown", "noctalia-shell ipc call brightness decrease", { no_mod = true, repeating = true })
+bind("XF86AudioRaiseVolume", Ipc .. "volume-up", { no_mod = true, repeating = true })
+bind("XF86AudioLowerVolume", Ipc .. "volume-down", { no_mod = true, repeating = true })
+bind("XF86AudioMute", Ipc .. "volume-mute", { no_mod = true, locked = true })
+bind("XF86MonBrightnessUp", Ipc .. "brightness-up", { no_mod = true, repeating = true })
+bind("XF86MonBrightnessDown", Ipc .. "brightness-down", { no_mod = true, repeating = true })
 
 -- System actions
 bind("SHIFT + P", "systemctl poweroff")
@@ -68,9 +68,8 @@ bind("SHIFT + G", perf_mode)
 
 
 -- Launchers / toggles
-bind("SHIFT + S", "noctalia-shell ipc call settings toggle")
-bind("Print", "noctalia-shell ipc call plugin:screen-toolkit annotate", { no_mod = true })
-bind("SHIFT + Print", "noctalia-shell ipc call plugin:screen-toolkit toggle", { no_mod = true })
+bind("SHIFT + S", Ipc .. "settings-toggle")
+bind("Print", Ipc .. "screenshot-region", { no_mod = true })
 
 bind("Return", Terminal)
 bind("SHIFT + Return", toggleterm)

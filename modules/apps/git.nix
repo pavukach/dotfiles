@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+hm = {
   programs.git = {
     enable = true;
     settings = {
@@ -42,8 +43,9 @@
       ];
     };
   };
+};
 
-  home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     delta
   ];
 }

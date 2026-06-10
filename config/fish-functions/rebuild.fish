@@ -14,7 +14,7 @@ function rebuild
     pushd $NIX_DIR
     git add .
 
-    nix-shell https://github.com/vic/flake-file/archive/main.tar.gz -A flake-file.sh --run bootstrap
+    # nix-shell https://github.com/vic/flake-file/archive/main.tar.gz -A flake-file.sh --run bootstrap
     if set -q _flag_u
         nix flake update
     end
@@ -23,7 +23,7 @@ function rebuild
     if set -q _flag_t
         set rebuild_args --show-trace
     end
-    nh os switch . --impure $rebuild_args
+    nh os switch . --impure --accept-flake-config $rebuild_args
 
     popd
 end

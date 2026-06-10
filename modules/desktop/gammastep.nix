@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  services.gammastep = {
+  hm.services.gammastep = {
     enable = true;
     latitude = 44.43225;
     longitude = 26.10626;

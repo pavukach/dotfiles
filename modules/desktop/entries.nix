@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  xdg.desktopEntries = {
+  hm.xdg.desktopEntries = {
     freetube = {
       name = "Freetube";
       icon = "freetube";

@@ -1,6 +1,6 @@
 {
   pkgs,
-  nixDir,
+  self, nixDir,
   ...
 }:
 {
@@ -12,7 +12,7 @@
   hm =
     { lib, config, ... }:
     let
-      link-tree = import ../lib/link-tree.nix {
+      link-tree = import (self.outPath + "/lib/link-tree.nix") {
         inherit lib;
         inherit (config.lib.file) mkOutOfStoreSymlink;
       };

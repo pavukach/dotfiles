@@ -32,16 +32,12 @@ local function toggle_monitor()
 end
 
 hl.on("monitor.added", toggle_monitor)
-hl.on("monitor.removed", toggle_monitor)
+-- hl.on("monitor.removed", toggle_monitor)
 
-hl.on("hyprland.start", function()
-	hl.exec_cmd("noctalia-shell")
-end)
-
-os.execute('sleep 0.5')
 hl.monitor({
 	output = "eDP-1",
 	mode = "1920x1080@60",
 	position = "0x0",
 	scale = 1.25,
+	disabled = true,
 })

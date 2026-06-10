@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  programs.vicinae = {
+  hm.programs.vicinae = {
     enable = true;
     package = pkgs.vicinae;
     systemd = {

@@ -1,20 +1,22 @@
 {
   inputs,
   pkgs,
+  self,
+  nixDir,
   ...
 }:
 {
   hm =
     { lib, config, ... }:
     let
-      link-tree = import ../lib/link-tree.nix {
+      link-tree = import (self.outPath + "/lib/link-tree.nix") {
         inherit lib;
         inherit (config.lib.file) mkOutOfStoreSymlink;
       };
     in
     {
       xdg.configFile = link-tree {
-        source = ../config/fish-functions;
+        source = "${nixDir}/config/fish-functions";
         target = "fish/functions";
       };
       programs = {
@@ -30,7 +32,7 @@
             cd = "z";
           };
           interactiveShellInit = (builtins.readFile "${inputs.nightfox}/extra/nightfox/nightfox.fish") + ''
-            test -e "${../secrets/setup.fish}" && source "${../secrets/setup.fish}"
+            test -e "${self.outPath}/secrets/setup.fish" && source "${self.outPath}/secrets/setup.fish"
           '';
           plugins = with pkgs.fishPlugins; [
             {
@@ -55,7 +57,7 @@
         starship = {
           enable = true;
           enableFishIntegration = true;
-          settings = pkgs.lib.importTOML ../config/starship.toml;
+          settings = pkgs.lib.importTOML (self.outPath + "/config/starship.toml");
         };
         zoxide.enable = true;
 

@@ -10,7 +10,7 @@ let
     );
 in
 {
-  xdg = {
+  hm.xdg = {
     configFile."user-dirs.dirs".force = true;
     userDirs = {
       enable = true;

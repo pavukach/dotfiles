@@ -1,5 +1,6 @@
 { lib, ... }:
 {
+hm = {
   programs.kitty = lib.mkForce {
     enable = true;
     shellIntegration.enableFishIntegration = true;
@@ -44,4 +45,5 @@
     enable = true;
     settings.default = [ "kitty.desktop" ];
   };
+};
 }

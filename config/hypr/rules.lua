@@ -59,9 +59,11 @@ hl.window_rule({
 })
 
 hl.layer_rule({
-	name = "region-selector",
-	match = {
-		namespace = "noctalia-shell:regionSelector",
-	},
-	no_anim = true,
+  name = "noctalia",
+  match = {
+    namespace = "^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd)$",
+  },
+  ignore_alpha = 0.5,
+  blur = true,
+  blur_popups = true,
 })
