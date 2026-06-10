@@ -1,6 +1,7 @@
 {
   pkgs,
-  self, nixDir,
+  self,
+  nixDir,
   ...
 }:
 {
@@ -10,13 +11,7 @@
   };
 
   hm =
-    { lib, config, ... }:
-    let
-      link-tree = import (self.outPath + "/lib/link-tree.nix") {
-        inherit lib;
-        inherit (config.lib.file) mkOutOfStoreSymlink;
-      };
-    in
+    { config, ... }:
     {
       wayland.windowManager.hyprland = {
         enable = true;
@@ -25,14 +20,10 @@
         portalPackage = null;
         systemd.enable = false;
       };
-      xdg.configFile = {
-        "uwsm/env".source = "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh";
-      }
-      // link-tree {
-        source = "${nixDir}/config/hypr";
-        target = "hypr";
-      };
+      xdg.configFile."uwsm/env".source =
+        "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh";
     };
 
+  my.link-to-conf."hypr" = "${nixDir}/config/hypr";
   environment.etc."hypr/stubs".source = "${pkgs.hyprland}/share/hypr/stubs";
 }
