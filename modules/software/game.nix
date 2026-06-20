@@ -1,7 +1,6 @@
 { lib, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    xwayland-satellite
     brogue-ce
   ];
 

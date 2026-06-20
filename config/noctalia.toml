@@ -77,7 +77,7 @@ widgetSpacing = 6
     [bar.widgets]
     background_opacity = 0.84999999999999998
     capsule = true
-    center = [ "clock", "audio_visualizer", "bongocat", "caffeine", "screenshot", "screen_recorder", "spacer_2" ]
+    center = [ "clock", "audio_visualizer", "bongocat", "cat", "caffeine", "screenshot", "recorder", "spacer_2" ]
     end = [
         "media",
         "tray",
@@ -93,9 +93,11 @@ widgetSpacing = 6
     ]
     margin_edge = 5
     margin_ends = 5
+    panel_overlap = 0
     scale = 1.1000000089406967
+    shadow = false
     start = [ "cpu", "ram", "temp", "workspaces" ]
-    widget_spacing = 8
+    widget_spacing = 4
 
         [[bar.widgets.left]]
         clockColor = "none"
@@ -227,17 +229,23 @@ brightnessStep = 5
 enableDdcSupport = false
 enforceMinimum = true
 
-[[calendar.cards]]
+[calendar]
 enabled = true
-id = "calendar-header-card"
 
-[[calendar.cards]]
-enabled = true
-id = "calendar-month-card"
+    [calendar.account.personal_google]
+    type = "google"
 
-[[calendar.cards]]
-enabled = true
-id = "weather-card"
+    [[calendar.cards]]
+    enabled = true
+    id = "calendar-header-card"
+
+    [[calendar.cards]]
+    enabled = true
+    id = "calendar-month-card"
+
+    [[calendar.cards]]
+    enabled = true
+    id = "weather-card"
 
 [colorSchemes]
 darkMode = true
@@ -309,9 +317,21 @@ gridSnapScale = false
 monitorWidgets = []
 overviewEnabled = true
 
+[desktop_widgets]
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
 [dock]
 animationSpeed = 1
 backgroundOpacity = 1
+background_opacity = 0.84999999999999998
 colorizeIcons = false
 deadOpacity = 0.59999999999999998
 displayMode = "auto_hide"
@@ -335,6 +355,7 @@ onlySameOutput = true
 pinnedApps = []
 pinnedStatic = false
 position = "bottom"
+shadow = false
 showDockIndicator = false
 showLauncherIcon = false
 sitOnFrame = false
@@ -418,6 +439,7 @@ suspendTimeout = 1800
 [location]
 analogClockInCalendar = false
 autoLocate = false
+auto_locate = true
 firstDayOfWeek = -1
 hideWeatherCityName = false
 hideWeatherTimezone = false
@@ -430,6 +452,9 @@ useFahrenheit = false
 weatherEnabled = true
 weatherShowEffects = true
 weatherTaliaMascotAlways = false
+
+[lockscreen]
+blur_intensity = 0.80000000000000004
 
 [lockscreen_widgets]
 enabled = false
@@ -474,7 +499,7 @@ disableDesktopWidgets = true
 disableWallpaper = true
 
 [notification]
-background_opacity = 0.90000000000000002
+background_opacity = 0.84999999999999998
 
 [notifications]
 backgroundOpacity = 1
@@ -510,6 +535,7 @@ respectExpireTimeout = false
 [osd]
 autoHideMs = 2000
 backgroundOpacity = 1
+background_opacity = 0.84999999999999998
 enabled = true
 enabledTypes = [ 0, 1, 2 ]
 location = "top_right"
@@ -518,6 +544,7 @@ overlayLayer = true
 
 [plugins]
 autoUpdate = true
+enabled = [ "noctalia/bongocat", "noctalia/screen_recorder" ]
 notifyUpdates = true
 
 [sessionMenu]
@@ -560,10 +587,14 @@ showKeybinds = true
     keybind = "6"
 
 [shell]
+launch_apps_as_systemd_services = true
+settings_show_advanced = true
 telemetry_enabled = true
 
     [shell.panel]
-    transparency_mode = "soft"
+    borders = false
+    shadow = false
+    transparency_mode = "glass"
 
     [shell.screenshot]
     directory = "/home/maksym/pictures/screenshots"
@@ -668,10 +699,19 @@ width = 75.0
 
 [widget.bongocat]
 audio_spectrum = true
+input_device = "/dev/input/event10"
 scale = 1.3
 script = "scripts/bongocat.lua"
 tappy_mode = true
 type = "scripted"
+
+[widget.cat]
+anchor = true
+audio_spectrum = true
+input_device = "/dev/input/event10"
+scale = 1.3
+tappy_mode = true
+type = "noctalia/bongocat:cat"
 
 [widget.cpu]
 scale = 0.90000000000000002
@@ -683,6 +723,9 @@ title_scroll = "on_hover"
 
 [widget.ram]
 scale = 0.90000000000000002
+
+[widget.recorder]
+type = "noctalia/screen_recorder:recorder"
 
 [widget.screen_recorder]
 copy_to_clipboard = true

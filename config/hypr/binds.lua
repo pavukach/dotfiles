@@ -75,6 +75,8 @@ bind("Return", Terminal)
 bind("SHIFT + Return", toggleterm)
 bind("D", Menu)
 bind("E", FileManager)
+bind("M", "noctalia msg panel-toggle control-center home")
+bind("N", "noctalia msg panel-toggle control-center calendar")
 
 -- Vicinae launchers
 bind("V", "vicinae vicinae://launch/clipboard/history?toggle=true")

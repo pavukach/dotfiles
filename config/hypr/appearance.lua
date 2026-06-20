@@ -1,5 +1,17 @@
 hl.config({
 	general = {
+		gaps_out = {
+			top = 3,
+			bottom = 3,
+			left = 15,
+			right = 15,
+		};
+		gaps_in = {
+			top = 1,
+			bottom = 1,
+			left = 1,
+			right = 1,
+		};
 		border_size = 3,
 		col = {
 			active_border = {
@@ -75,4 +87,10 @@ hl.animation({
 	speed = 10,
 	bezier = "linear",
 	style = "once",
+})
+hl.animation({
+	leaf = "border",
+	enabled = true,
+	speed = 1,
+	bezier = "standard",
 })

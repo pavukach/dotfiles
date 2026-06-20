@@ -1,49 +1,49 @@
 { pkgs, ... }:
 {
-hm = {
-  programs.git = {
-    enable = true;
-    settings = {
-      user.name = "Maksym Diachok";
-      user.email = "maksdyachok2005@gmail.com";
-      push.autoSetupRemote = true;
-      color.ui = "auto";
-      core.editor = "vim";
-      pull.rebase = true;
-      init.defaultBranch = "main";
-      advice.defaultBranchName = false;
+  hm = {
+    programs.git = {
+      enable = true;
+      settings = {
+        user.name = "Maksym Diachok";
+        user.email = "maksdyachok2005@gmail.com";
+        push.autoSetupRemote = true;
+        color.ui = "auto";
+        core.editor = "vim";
+        pull.rebase = true;
+        init.defaultBranch = "main";
+        advice.defaultBranchName = false;
 
-      core.pager = "delta";
-      interactive.diffFilter = "delta --color-only";
-      delta.navigate = true;
-      diff.tool = "codediff";
-      merge.tool = "codediff";
-      mergetool.codediff.cmd = ''nvim "$MERGED" -c "CodeDiff merge \"$MERGED\""'';
-      difftool.codediff.cmd = ''nvim "$LOCAL" "$REMOTE" +"CodeDiff file $LOCAL $REMOTE"'';
-    };
-    ignores = [
-      ".geminiignore"
-      "GEMINI.md"
-      "shell.nix"
-      ".envrc"
-      ".direnv/"
-    ];
-  };
+        core.pager = "delta";
+        interactive.diffFilter = "delta --color-only";
+        delta.navigate = true;
+        diff.tool = "codediff";
+        merge.tool = "codediff";
+        mergetool.codediff.cmd = ''nvim "$MERGED" -c "CodeDiff merge \"$MERGED\""'';
+        difftool.codediff.cmd = ''nvim "$LOCAL" "$REMOTE" +"CodeDiff file $LOCAL $REMOTE"'';
 
-  programs.lazygit = {
-    enable = true;
-    settings = {
-      git.pagers = [
-        {
-          pager = ''
-            delta --dark --paging=never \
-                      --line-numbers --hyperlinks \
-                      --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"'';
-        }
+        url."git@github.com:".insteadOf = "https://github.com/";
+      };
+      ignores = [
+        "shell.nix"
+        ".envrc"
+        ".direnv/"
       ];
     };
+
+    programs.lazygit = {
+      enable = true;
+      settings = {
+        git.pagers = [
+          {
+            pager = ''
+              delta --dark --paging=never \
+                        --line-numbers --hyperlinks \
+                        --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"'';
+          }
+        ];
+      };
+    };
   };
-};
 
   environment.systemPackages = with pkgs; [
     delta
