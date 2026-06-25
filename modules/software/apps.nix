@@ -24,4 +24,5 @@
     zoom-us
   ];
   programs.neovim.enable = true;
+
 }

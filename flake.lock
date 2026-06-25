@@ -83,6 +83,28 @@
         "type": "github"
       }
     },
+    "firefox-addons": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "pkgs/firefox-addons",
+        "lastModified": 1782273780,
+        "narHash": "sha256-YV++7tX9MN8Y1APD3BsXqLioBeKZjgFPxrT0YoD416A=",
+        "owner": "rycee",
+        "repo": "nur-expressions",
+        "rev": "6c2dd39e5bf2666b298ee3bdbf0dfd858911e8e3",
+        "type": "gitlab"
+      },
+      "original": {
+        "dir": "pkgs/firefox-addons",
+        "owner": "rycee",
+        "repo": "nur-expressions",
+        "type": "gitlab"
+      }
+    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -221,11 +243,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1781699200,
-        "narHash": "sha256-Igc0wLamP4owWrZYTjtIochEDmqcDOkxkzkzTKf3VEo=",
+        "lastModified": 1782318106,
+        "narHash": "sha256-rLLM2il5h8HbvHR5ZA2nB/lpgSo1cGSJS03tKLCKN9k=",
         "owner": "ForkPrince",
         "repo": "nur-packages",
-        "rev": "4ffa4ad834f90e71d3a768fae3fa218a97b5c842",
+        "rev": "45df2739f95a57091ac4bc1194f33596226d3104",
         "type": "github"
       },
       "original": {
@@ -241,11 +263,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1781751568,
-        "narHash": "sha256-hZAbXoNA4nCSaIJJLGl/EdErFtlnAS06jEp4oO7Qp6s=",
+        "lastModified": 1782233665,
+        "narHash": "sha256-h/xOtrByoA/Ak1lWHn0O1lVZz4qWYbwOSLQ8YSwQO0I=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "5bcff43156c0eebe68759338b7879c8e1b2e2bd0",
+        "rev": "062581938b4a378a82dfbb294b494808157153a1",
         "type": "github"
       },
       "original": {
@@ -307,11 +329,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1781422160,
-        "narHash": "sha256-W7S8O86bVrw2gaomEwkHStOzmPpnFIHQ6lS4Q2HffJ0=",
+        "lastModified": 1782030356,
+        "narHash": "sha256-h4WpMr455AfRub0FXBaon6Vcpe0waUyJ4GivIW6oyd4=",
         "owner": "nix-community",
         "repo": "nix-index-database",
-        "rev": "854d04e2368fb2e9c328a36b3c0a04cd713bfae1",
+        "rev": "3017088b49efd404f78e3b104f553b97e4af786b",
         "type": "github"
       },
       "original": {
@@ -353,11 +375,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1781074563,
-        "narHash": "sha256-d34lhgOet4IqYMnCxbIvwFBMOyTV6PT4TyNEOP0/ZhU=",
-        "rev": "9ae611a455b90cf061d8f332b977e387bda8e1ca",
+        "lastModified": 1781577229,
+        "narHash": "sha256-rcUHdUtJEvMdNEl2Wq+YpHraHKfcer3KsBscpZEF2Yg=",
+        "rev": "567a49d1913ce81ac6e9582e3553dd90a955875f",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1014179.9ae611a455b9/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1017464.567a49d1913c/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -369,11 +391,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1781735722,
-        "narHash": "sha256-SJYzSsDW1Wpn6v9FQWu8x6walO1xlTqKkSc7HKUTtSs=",
+        "lastModified": 1782333815,
+        "narHash": "sha256-5JdTXqJJBEchWZn4IJyOKhXZuwsblxsKdaNskf5J8Ig=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "751ca0c0f70371c8eaaff806a2124e684189d3b6",
+        "rev": "6b2d0f923d628dfe738a140386e34efacd48bb3a",
         "type": "github"
       },
       "original": {
@@ -407,20 +429,9 @@
         "type": "github"
       }
     },
-    "orion": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-Q3Qp+cWPe9HtjrKevgbdLV6MK53hnMxeG4ynLkC8zro=",
-        "type": "file",
-        "url": "https://orionbrowser.com/download/oriongtk-early-beta"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://orionbrowser.com/download/oriongtk-early-beta"
-      }
-    },
     "root": {
       "inputs": {
+        "firefox-addons": "firefox-addons",
         "helium": "helium",
         "home-manager": "home-manager",
         "import-tree": "import-tree",
@@ -429,10 +440,10 @@
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
         "noctalia": "noctalia",
-        "orion": "orion",
         "stylix": "stylix",
         "sysc-greet": "sysc-greet",
-        "xremap": "xremap"
+        "xremap": "xremap",
+        "zen-browser": "zen-browser"
       }
     },
     "stylix": {
@@ -455,11 +466,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1781018772,
-        "narHash": "sha256-C+cGIUaC6dqfwTbI+BwCd572PbESGA3WYxR1sLTqxkY=",
+        "lastModified": 1782310521,
+        "narHash": "sha256-vsxcG0i8e4EPfdnhMTKMVzD1825H2vG1BBslzom9wxg=",
         "owner": "nix-community",
         "repo": "stylix",
-        "rev": "a378e4c09031fb15a4d65da88aa628f71fc52f6b",
+        "rev": "e084d011e7ee9302aceaaf6c1fc28a9ace09e16a",
         "type": "github"
       },
       "original": {
@@ -621,6 +632,29 @@
         "owner": "k0kubun",
         "ref": "v0.15.8",
         "repo": "xremap",
+        "type": "github"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1782144240,
+        "narHash": "sha256-RgCWSv7AJZCwPhCzz+J0lvwp1WBz9ouvCnnlmvu0xfw=",
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
+        "rev": "d1693556428967f8b4eef128feb090421ddcaf15",
+        "type": "github"
+      },
+      "original": {
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
         "type": "github"
       }
     }

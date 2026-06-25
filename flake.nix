@@ -5,51 +5,46 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     import-tree.url = "github:vic/import-tree";
-
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     helium = {
       url = "github:ForkPrince/nur-packages";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nightfox = {
-      url = "github:EdenEast/nightfox.nvim";
-      flake = false;
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
     };
-
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
-
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-    };
-
-    orion = {
-      url = "https://orionbrowser.com/download/oriongtk-early-beta";
-      flake = false;
-    };
-
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     sysc-greet = {
       url = "github:Nomadcxx/sysc-greet";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     xremap = {
       url = "github:xremap/nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nightfox = {
+      url = "github:EdenEast/nightfox.nvim";
+      flake = false;
     };
   };
   nixConfig = {

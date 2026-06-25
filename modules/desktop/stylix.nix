@@ -24,6 +24,7 @@
         neovim.enable = false;
         starship.enable = false;
         kitty.enable = false;
+      zen-browser.profileNames = [ "default" ];
       };
       fonts = {
         sizes = {

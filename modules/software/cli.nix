@@ -38,8 +38,9 @@
     nix-tree
     calibre
     alsa-utils
-    tintin
+    tintin # mud client
     hyprpicker
+    fanficfare # download ebooks from site
 
     atool
     rar

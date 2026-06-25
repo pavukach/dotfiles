@@ -8,10 +8,6 @@
       packages = [
         "com.usebottles.bottles"
         "com.github.tchx84.Flatseal"
-        {
-          appId = "com.kagi.OrionGtk";
-          bundle = "${inputs.orion}";
-        }
       ];
       overrides = {
         "com.usebottles.bottles".Context = {

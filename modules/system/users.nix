@@ -14,5 +14,6 @@
     ];
   };
 
+  nix.settings.trusted-users = [ "root" username ];
   programs.fish.enable = true;
 }
