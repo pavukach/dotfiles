@@ -1,4 +1,4 @@
-const map = api.map;
+const {map, mapkey} = api.map;
 map('u', 'e');
 mapkey('p', "Open the clipboard's URL in the current tab", function() {
     Front.getContentFromClipboard(function(response) {
