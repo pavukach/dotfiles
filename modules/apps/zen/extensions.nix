@@ -50,7 +50,7 @@ in
       sine = {
         enable = true;
         mods = [
-          "Nebula"
+          # "Nebula"
         ];
       };
     };
