@@ -1,5 +1,7 @@
 {
-  pkgs, self, pkgsConfig,
+  pkgs,
+  self,
+  pkgsConfig,
   ...
 }:
 {
@@ -24,7 +26,11 @@
     };
   };
   nixpkgs.config = pkgsConfig;
-
+  nixpkgs.overlays = [
+    (final: _prev: {
+      pnpm_10_29_2 = final.pnpm_10;
+    })
+  ];
 
   programs.nix-ld = {
     enable = true;

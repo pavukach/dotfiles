@@ -46,6 +46,10 @@
       url = "github:EdenEast/nightfox.nvim";
       flake = false;
     };
+    betterfox = {
+      url = "github:yokoffing/Betterfox";
+      flake = false;
+    };
   };
   nixConfig = {
     extra-substituters = [ "https://noctalia.cachix.org" ];

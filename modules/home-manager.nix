@@ -2,6 +2,7 @@
   self,
   inputs,
   username,
+  pkgsConfig,
   lib,
   nixDir,
   ...
@@ -10,8 +11,8 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs username self; };
     useUserPackages = true;
+    sharedModules = [ { nixpkgs.config = pkgsConfig; } ];
     backupFileExtension = "hm-backup";
-    useGlobalPkgs = true;
   };
   imports = [
     inputs.home-manager.nixosModules.home-manager
